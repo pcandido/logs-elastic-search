@@ -5,7 +5,7 @@ const loggerDecorator = (fn, fullMessage) => {
   const fnName = fn.name || 'anonymous function'
 
   const logged = (...args) => {
-    const extraFields = { args, fullMessage }
+    const extraFields = { args: JSON.stringify(args), fullMessage }
     logger.info(`calling ${fnName}`, extraFields)
 
     const start = new Date().getTime()
@@ -13,10 +13,10 @@ const loggerDecorator = (fn, fullMessage) => {
 
     try {
       const result = fn(...args)
-      logger.info(`${fnName} finished`, { extraFields, result, executionTime: executionTime() })
+      logger.info(`${fnName} finished`, { extraFields, result: JSON.stringify(result), executionTime: executionTime() })
       return result
     } catch (error) {
-      logger.error(`${fnName} crashed`, { extraFields, error, executionTime: executionTime() })
+      logger.error(`${fnName} crashed`, { extraFields, error: JSON.stringify(error), executionTime: executionTime() })
       throw error
     }
   }
