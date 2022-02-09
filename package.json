@@ -1,0 +1,7 @@
+{
+  "name": "log-elasticsearch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Paulo Cândido <paulo.candido@g.globo>",
+  "license": "MIT"
+}
