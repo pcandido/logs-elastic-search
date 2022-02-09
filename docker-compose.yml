@@ -1,0 +1,25 @@
+version: "3"
+
+networks:
+  network-elastic:
+       
+services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
+    ports: 
+      - 9200:9200
+      - 9300:9300
+    networks: 
+      - network-elastic
+    environment:
+      - discovery.type=single-node
+          
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.0
+    ports: 
+      - 5601:5601
+    networks: 
+      - network-elastic
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
