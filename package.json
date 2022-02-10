@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Paulo Cândido <paulo.candido@g.globo>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "winston": "^3.5.1",
     "winston-elasticsearch": "^0.16.1"
