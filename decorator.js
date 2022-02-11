@@ -13,10 +13,10 @@ const loggerDecorator = (fn, fullMessage) => {
 
     try {
       const result = fn(...args)
-      logger.info(`${fnName} finished`, { extraFields, result: JSON.stringify(result), executionTime: executionTime() })
+      logger.info(`${fnName} finished`, { ...extraFields, result: JSON.stringify(result), executionTime: executionTime() })
       return result
     } catch (error) {
-      logger.error(`${fnName} crashed`, { extraFields, error: JSON.stringify(error), executionTime: executionTime() })
+      logger.error(`${fnName} crashed`, { ...extraFields, error: error.message, executionTime: executionTime() })
       throw error
     }
   }
