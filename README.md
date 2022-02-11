@@ -1,4 +1,4 @@
-# log-elasticsearch
+# log-elastic-search
 
 Logs são um dos três pilares da observabilidae. São extremamente importantes para identificar e entender o comportamento da aplicação.
 
