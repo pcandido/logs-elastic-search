@@ -5,7 +5,7 @@ const loggerDecorator = (fn, fullMessage) => {
   const fnName = fn.name || 'anonymous function'
 
   const logged = (...args) => {
-    const extraFields = { args: JSON.stringify(args), fullMessage }
+    const extraFields = { function: fnName, args: JSON.stringify(args), fullMessage }
     logger.info(`calling ${fnName}`, extraFields)
 
     const start = new Date().getTime()
